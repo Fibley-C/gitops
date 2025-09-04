@@ -20,6 +20,8 @@ spec:
           value: "2"
         - name: service.ui.type
           value: LoadBalancer
+        - name: preUpgradeChecker.jobEnabled
+          value: false
   syncPolicy:
     automated: {}
     syncOptions:
