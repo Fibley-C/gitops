@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: longhorn-system
+  source:
+    chart: longhorn
+    repoURL: https://charts.longhorn.io
+    targetRevision: 1.9.1
+    helm:
+      parameters:
+        - name: defaultSettings.defaultReplicaCount
+          value: "2"
+        - name: service.ui.type
+          value: LoadBalancer
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
