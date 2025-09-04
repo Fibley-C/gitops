@@ -8,9 +8,10 @@ spec:
     name: in-cluster
     namespace: argocd
   source:
+    path: apps
     repoURL: https://github.com/Fibley-C/gitops
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
