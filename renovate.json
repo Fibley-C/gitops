@@ -3,7 +3,8 @@
   "extends": [
     "config:recommended"
   ],
-  "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
+  {
+  "argocd": {
+    "managerFilePatterns": ["/apps/.+\\.yaml$/"]
   }
 }
