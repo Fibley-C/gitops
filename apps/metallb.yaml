@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: metallb-system
+  source:
+    chart: longhorn
+    repoURL: https://metallb.github.io/metallb
+    targetRevision: 0.14.9
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
