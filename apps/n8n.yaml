@@ -15,22 +15,17 @@ spec:
     repoURL: oci://8gears.container-registry.com/library/n8n
     targetRevision: "1.0.14"
     helm:
-      values: |
-        service:
-          type: LoadBalancer
-          port: 5678
-        main:
-          persistence:
-            enabled: true
-            size: 10Gi
-            storageClass: longhorn
-        binaryData:
-          mode: filesystem
-          localStoragePath: /home/node/.n8n/binary-data
-          persistence:
-            enabled: true
-            size: 10Gi
-            storageClass: longhorn
+      parameters:
+        - name: main.service.type
+          value: LoadBalancer
+        - name: main.service.port
+          value: "5678"
+        - name: main.persistence.enabled
+          value: "true"
+        - name: main.persistence.size
+          value: 10Gi
+        - name: main.persistence.storageClass
+          value: longhorn
   syncPolicy:
     automated: {}
     syncOptions:
