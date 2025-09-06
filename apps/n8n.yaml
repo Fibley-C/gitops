@@ -24,6 +24,8 @@ spec:
           value: 10Gi
         - name: main.persistence.storageClass
           value: longhorn
+        - name: main.extraEnv.N8N_SECURE_COOKIE
+          value: "false"
   syncPolicy:
     automated: {}
     syncOptions:
