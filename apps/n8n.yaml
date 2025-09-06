@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: n8n
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: n8n
+  source:
+    chart: n8n
+    repoURL: oci://8gears.container-registry.com/library/n8n
+    targetRevision: "1.0.14"
+    helm:
+      values: |
+        service:
+          type: LoadBalancer
+          port: 5678
+        main:
+          persistence:
+            enabled: true
+            size: 10Gi
+            storageClass: longhorn
+        binaryData:
+          mode: filesystem
+          localStoragePath: /home/node/.n8n/binary-data
+          persistence:
+            enabled: true
+            size: 10Gi
+            storageClass: longhorn
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
