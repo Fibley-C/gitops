@@ -18,12 +18,6 @@ spec:
       parameters:
         - name: main.service.type
           value: LoadBalancer
-        - name: main.persistence.enabled
-          value: "true"
-        - name: main.persistence.size
-          value: 10Gi
-        - name: main.persistence.storageClass
-          value: longhorn
         - name: main.config.n8n.secure_cookie
           value: "false"
   syncPolicy:
