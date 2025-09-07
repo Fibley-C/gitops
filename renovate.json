@@ -8,13 +8,13 @@
 
   "packageRules": [
     {
-      "description": "Let regex (OCI) handle n8n; keep argocd for everything else",
+      "description": "Disable argocd manager for n8n",
       "matchManagers": ["argocd"],
       "matchFileNames": ["apps/n8n.yaml"],
       "enabled": false
     },
     {
-      "description": "Nice PR titles/labels for n8n",
+      "description": "Group n8n OCI chart PRs with argocd apps",
       "matchDatasources": ["docker"],
       "matchPackageNames": ["8gears.container-registry.com/library/n8n"],
       "commitMessageTopic": "n8n Helm chart",
@@ -26,7 +26,6 @@
   "customManagers": [
     {
       "customType": "regex",
-      "displayName": "n8n OCI chart",
       "managerFilePatterns": ["/^apps/.*\\.ya?ml$/"],
       "matchStrings": [
         "repoURL:\\s*oci://(?<registryHost>[^/\\s]+)/(?<chartPath>[^\\s]+)[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\"]+)\""
