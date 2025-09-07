@@ -18,13 +18,15 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["8gears.container-registry.com/library/n8n"],
       "commitMessageTopic": "n8n Helm chart",
-      "labels": ["helm", "oci"]
+      "labels": ["helm", "oci"],
+      "groupName": "argocd apps"
     }
   ],
 
   "customManagers": [
     {
       "customType": "regex",
+      "displayName": "n8n OCI chart",
       "managerFilePatterns": ["/^apps/.*\\.ya?ml$/"],
       "matchStrings": [
         "repoURL:\\s*oci://(?<registryHost>[^/\\s]+)/(?<chartPath>[^\\s]+)[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\"]+)\""
