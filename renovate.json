@@ -7,15 +7,5 @@
     "managerFilePatterns": [
       "/apps/.+\\.yaml$/"
     ]
-  },
-  "packageRules": [
-    {
-      "matchFiles": [
-        "apps/n8n.yaml"
-      ],
-      "enabledManagers": [
-        "helm"
-      ]
-    }
-  ]
+  }
 }
