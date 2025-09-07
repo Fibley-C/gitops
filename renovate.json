@@ -1,10 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "docker": {
-    "ignorePaths": ["apps/*.yaml"]
-  },
+  "extends": [
+    "config:recommended"
+  ],
   "argocd": {
-    "managerFilePatterns": ["/apps/.+\\.yaml$/"]
-  }
+    "managerFilePatterns": [
+      "/apps/.+\\.yaml$/"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchCategories": [
+        "docker"
+      ],
+      "ignorePaths": [
+        "apps/*.yaml"
+      ]
+    }
+  ]
 }
