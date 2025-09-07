@@ -22,6 +22,8 @@ spec:
           value: "false"
         - name: main.persistence.enabled
           value: "true"
+        - name: main.persistence.type
+          value: dynamic
         - name: main.persistence.storageClassName
           value: longhorn
         - name: main.persistence.size
