@@ -5,5 +5,16 @@
   ],
   "argocd": {
     "managerFilePatterns": ["/apps/.+\\.yaml$/"]
-  }
+  },
+   "regexManagers": [
+    {
+      "fileMatch": ["^apps/.*\\.ya?ml$"],
+      "matchStrings": [
+        "repoURL:\\s*oci://(?<registryHost>[^/]+)/(?<chartPath>.+)\\n[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "helm",
+      "depNameTemplate": "{{chartPath}}",
+      "registryUrlTemplate": "oci://{{registryHost}}"
+    }
+  ]
 }
