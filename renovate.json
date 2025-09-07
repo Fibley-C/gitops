@@ -10,11 +10,11 @@
   },
   "packageRules": [
     {
-      "matchCategories": [
-        "docker"
+      "matchFiles": [
+        "apps/n8n.yaml"
       ],
-      "ignorePaths": [
-        "apps/*.yaml"
+      "enabledManagers": [
+        "helm"
       ]
     }
   ]
