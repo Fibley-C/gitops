@@ -1,14 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-
+  "packageRules": [
+    {
+      "matchFiles": ["apps/n8n.yaml"],
+      "managers": ["helm"]
+    }
+  ],
   "argocd": {
     "managerFilePatterns": ["/apps/.+\\.yaml$/"]
-  },
-
-  "hostRules": [
-    {
-      "matchHost": "8gears.container-registry.com"
-    }
-  ]
+  }
 }
