@@ -1,20 +1,45 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
+
   "argocd": {
     "managerFilePatterns": ["/apps/.+\\.yaml$/"]
   },
-   "regexManagers": [
+
+  "packageRules": [
     {
-      "fileMatch": ["^apps/.*\\.ya?ml$"],
+      "description": "Let regex (OCI) handle n8n; keep argocd for everything else",
+      "matchManagers": ["argocd"],
+      "matchFileNames": ["apps/n8n.yaml"],
+      "enabled": false
+    },
+    {
+      "description": "Nice PR titles/labels for n8n",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["8gears.container-registry.com/library/n8n"],
+      "commitMessageTopic": "n8n Helm chart",
+      "labels": ["helm", "oci"]
+    }
+  ],
+
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^apps/.*\\.ya?ml$/"],
       "matchStrings": [
-        "repoURL:\\s*oci://(?<registryHost>[^/]+)/(?<chartPath>.+)\\n[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\"]+)\""
+        "repoURL:\\s*oci://(?<registryHost>[^/\\s]+)/(?<chartPath>[^\\s]+)[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\"]+)\""
       ],
-      "datasourceTemplate": "helm",
-      "depNameTemplate": "{{chartPath}}",
-      "registryUrlTemplate": "oci://{{registryHost}}"
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "{{registryHost}}/{{chartPath}}",
+      "registryUrlTemplate": "https://{{registryHost}}",
+      "versioningTemplate": "semver"
+    }
+  ],
+
+  "hostRules": [
+    {
+      "matchHost": "8gears.container-registry.com",
+      "hostType": "docker"
     }
   ]
 }
