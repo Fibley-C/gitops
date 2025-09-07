@@ -6,41 +6,9 @@
     "managerFilePatterns": ["/apps/.+\\.yaml$/"]
   },
 
-  "packageRules": [
-    {
-      "description": "Disable argocd manager for n8n",
-      "matchManagers": ["argocd"],
-      "matchFileNames": ["apps/n8n.yaml"],
-      "enabled": false
-    },
-    {
-      "description": "Group n8n OCI chart PRs with argocd apps",
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["8gears.container-registry.com/library/n8n"],
-      "commitMessageTopic": "n8n Helm chart",
-      "labels": ["helm", "oci"],
-      "groupName": "argocd apps"
-    }
-  ],
-
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/^apps/.*\\.ya?ml$/"],
-      "matchStrings": [
-        "repoURL:\\s*oci://(?<registryHost>[^/\\s]+)/(?<chartPath>[^\\s]+)[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\"]+)\""
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "{{registryHost}}/{{chartPath}}",
-      "registryUrlTemplate": "https://{{registryHost}}",
-      "versioningTemplate": "semver"
-    }
-  ],
-
   "hostRules": [
     {
-      "matchHost": "8gears.container-registry.com",
-      "hostType": "docker"
+      "matchHost": "8gears.container-registry.com"
     }
   ]
 }
