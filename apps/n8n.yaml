@@ -20,6 +20,12 @@ spec:
           value: LoadBalancer
         - name: main.config.n8n.secure_cookie
           value: "false"
+        - name: main.persistence.enabled
+          value: "true"
+        - name: main.persistence.storageClassName
+          value: longhorn
+        - name: main.persistence.size
+          value: 1Gi
   syncPolicy:
     automated: {}
     syncOptions:
