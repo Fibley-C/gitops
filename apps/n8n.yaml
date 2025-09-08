@@ -12,7 +12,7 @@ spec:
     namespace: n8n
   source:
     chart: n8n
-    repoURL: oci://8gears.container-registry.com/library/n8n
+    repoURL: https://8gears.container-registry.com/library/n8n
     targetRevision: "1.0.13"
     helm:
       parameters:
