@@ -7,5 +7,16 @@
     "managerFilePatterns": [
       "/apps/.+\\.yaml$/"
     ]
-  }
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["apps/n8n.yaml"],
+      "matchStrings": [
+        "repoURL:\\s*oci://(?<registry>[^\\s]+)\\s*.*?targetRevision:\\s*\"?(?<currentValue>[0-9.]+)\"?"
+      ],
+      "depNameTemplate": "n8n",
+      "datasourceTemplate": "helm",
+      "registryUrlTemplate": "oci://{{registry}}"
+    }
+  ]
 }
