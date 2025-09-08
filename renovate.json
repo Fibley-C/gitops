@@ -11,7 +11,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["apps/n8n.yaml"],
+      "managerFilePatterns": [
+        "/apps/n8n.yaml/"
+      ],
       "matchStrings": [
         "repoURL:\\s*oci://(?<registry>[^\\s]+)\\s*.*?targetRevision:\\s*\"?(?<currentValue>[0-9.]+)\"?"
       ],
@@ -19,5 +21,5 @@
       "datasourceTemplate": "helm",
       "registryUrlTemplate": "oci://{{registry}}"
     }
-  ] 
+  ]
 }
