@@ -8,9 +8,12 @@
       "/apps/.+\\.yaml$/"
     ]
   },
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^apps/.*\\.ya?ml$"],
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^apps/.*\\.ya?ml$/"
+      ],
       "matchStrings": [
         "repoURL:\\s*(?<registry>oci://[^\\s]+)[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\\s]+)\""
       ],
