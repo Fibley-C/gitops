@@ -8,18 +8,15 @@
       "/apps/.+\\.yaml$/"
     ]
   },
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/apps/n8n.yaml/"
-      ],
+      "fileMatch": ["^apps/.*\\.ya?ml$"],
       "matchStrings": [
-        "repoURL:\\s*oci://(?<registry>[^\\s]+)\\s*.*?targetRevision:\\s*\"?(?<currentValue>[0-9.]+)\"?"
+        "repoURL:\\s*(?<registry>oci://[^\\s]+)[\\s\\S]*?targetRevision:\\s*\"(?<currentValue>[^\\s]+)\""
       ],
-      "depNameTemplate": "n8n",
       "datasourceTemplate": "helm",
-      "registryUrlTemplate": "oci://{{registry}}"
+      "depNameTemplate": "{{registry}}",
+      "registryUrlTemplate": "{{registry}}"
     }
   ]
 }
