@@ -22,15 +22,13 @@ spec:
           value: "true"
         - name: ingress.className
           value: traefik
-        - name: ingress.hosts[0].host
+        - name: ingress.hosts.host
           value: 192.168.1.42.nip.io
-        - name: ingress.hosts[0].paths[0].path
+        - name: ingress.hosts.paths
           value: /
-        - name: ingress.hosts[0].paths[0].pathType
-          value: Prefix
-        - name: ingress.tls[0].hosts[0]
+        - name: ingress.tls.hosts
           value: 192.168.1.42.nip.io
-        - name: ingress.tls[0].secretName
+        - name: ingress.tls.secretName
           value: ingress-n8n-tls
         - name: main.persistence.enabled
           value: "true"
