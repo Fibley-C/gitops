@@ -25,9 +25,9 @@ spec:
         - name: ingress.hosts.host
           value: 192.168.1.42.nip.io
         - name: ingress.hosts.paths
-          value: /
+          value: [/]
         - name: ingress.tls.hosts
-          value: 192.168.1.42.nip.io
+          value: [192.168.1.42.nip.io]
         - name: ingress.tls.secretName
           value: ingress-n8n-tls
         - name: main.persistence.enabled
