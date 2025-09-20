@@ -14,6 +14,43 @@ spec:
     chart: opencti
     repoURL: https://devops-ia.github.io/helm-opencti
     targetRevision: 2.0.4
+    helm:
+      parameters:
+        - name: opensearch.enabled
+          value: "true"
+        - name: rabbitmq.enabled
+          value: "true"
+        - name: redis.enabled
+          value: "true"
+        - name: redis.storage.enabled
+          value: "true"
+        - name: minio.enabled
+          value: "true"
+
+        - name: opensearch.persistence.enabled
+          value: "true"
+        - name: minio.persistence.enabled
+          value: "true"
+        - name: rabbitmq.persistence.enabled
+          value: "true"
+
+        - name: env.APP__ADMIN__EMAIL
+          value: "admin@example.com"
+        - name: env.APP__ADMIN__PASSWORD
+          value: "changeme123"
+        - name: env.APP__ADMIN__TOKEN
+          value: "b1976749-8a53-4f49-bf04-cafa2a3458c1"
+        - name: env.APP__BASE_URL
+          value: "http://opencti.local"
+
+        - name: ingress.enabled
+          value: "true"
+        - name: ingress.className
+          value: "traefik"
+        - name: ingress.hosts[0].host
+          value: "opencti.local"
+        - name: ingress.hosts[0].paths[0].path
+          value: "/"
   syncPolicy:
     automated: {}
     syncOptions:
