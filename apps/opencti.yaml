@@ -27,11 +27,11 @@ spec:
         - name: env.APP__HEALTH_ACCESS_KEY
           value: changeme
         - name: env.APP__TELEMETRY__METRICS__ENABLED
-          value: false
+          value: "false"
         - name: env.APP__GRAPHQL__PLAYGROUND__ENABLED
-          value: false
+          value: "false"
         - name: env.APP__GRAPHQL__PLAYGROUND__FORCE_DISABLED_INTROSPECTION
-          value: false
+          value: "false"
         - name: env.ELASTICSEARCH__ENGINE_SELECTOR
           value: opensearch
         - name: env.ELASTICSEARCH__URL
@@ -58,16 +58,16 @@ spec:
           value: 6379
 
         - name: opensearch.enabled
-          value: true
+          value: "true"
         - name: opensearch.opensearchJavaOpts
           value: "-Xmx512M -Xms512M"
         - name: opensearch.singleNode
-          value: true
+          value: "true"
         - name: opensearch.persistence.enabled
-          value: true
+          value: "true"
 
         - name: minio.enabled
-          value: true
+          value: "true"
         - name: minio.mode
           value: standalone
         - name: minio.auth.rootUser
@@ -75,14 +75,14 @@ spec:
         - name: minio.auth.rootPassword
           value: changeme
         - name: minio.persistence.enabled
-          value: true
+          value: "true"
 
         - name: rabbitmq.enabled
-          value: true
+          value: "true"
         - name: rabbitmq.replicaCount
           value: 1
         - name: rabbitmq.clustering.enabled
-          value: false
+          value: "false"
         - name: rabbitmq.auth.username
           value: user
         - name: rabbitmq.auth.password
@@ -90,12 +90,12 @@ spec:
         - name: rabbitmq.auth.erlangCookie
           value: changeme
         - name: rabbitmq.persistence.enabled
-          value: true
+          value: "true"
 
         - name: ingress.enabled
-          value: true
+          value: "true"
         - name: ingress.className
-          value: "traefik"
+          value: traefik
         - name: ingress.hosts[0].host
           value: opencti-192.168.1.42.local
         - name: ingress.hosts[0].paths[0].path
