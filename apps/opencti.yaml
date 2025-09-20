@@ -28,11 +28,11 @@ spec:
           value: "true"
 
         - name: opensearch.persistence.enabled
-          value: "true"
+          value: "false"
         - name: minio.persistence.enabled
-          value: "true"
+          value: "false"
         - name: rabbitmq.persistence.enabled
-          value: "true"
+          value: "false"
 
         - name: env.APP__ADMIN__EMAIL
           value: "admin@example.com"
