@@ -45,9 +45,9 @@ spec:
         - name: env.RABBITMQ__HOSTNAME
           value: opencti-rabbitmq
         - name: env.RABBITMQ__PORT_MANAGEMENT
-          value: 15672
+          value: "15672"
         - name: env.RABBITMQ__PORT
-          value: 5672
+          value: "5672"
         - name: env.RABBITMQ__USERNAME
           value: user
         - name: env.REDIS__HOSTNAME
@@ -55,7 +55,7 @@ spec:
         - name: env.REDIS__MODE
           value: single
         - name: env.REDIS__PORT
-          value: 6379
+          value: "6379"
 
         - name: opensearch.enabled
           value: "true"
@@ -80,7 +80,7 @@ spec:
         - name: rabbitmq.enabled
           value: "true"
         - name: rabbitmq.replicaCount
-          value: 1
+          value: "1"
         - name: rabbitmq.clustering.enabled
           value: "false"
         - name: rabbitmq.auth.username
