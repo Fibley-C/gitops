@@ -34,6 +34,11 @@ spec:
         - name: rabbitmq.persistence.enabled
           value: "false"
 
+        - name: redis.resources.requests.memory
+          value: "512Mi"
+        - name: redis.resources.limits.memory
+          value: "1Gi"
+
         - name: env.APP__ADMIN__EMAIL
           value: "admin@example.com"
         - name: env.APP__ADMIN__PASSWORD
