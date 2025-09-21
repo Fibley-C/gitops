@@ -13,7 +13,7 @@ spec:
   source:
     chart: opencti
     repoURL: https://devops-ia.github.io/helm-opencti
-    targetRevision: 2.0.4
+    targetRevision: 2.0.5
     helm:
       parameters:
         - name: env.APP__ADMIN__EMAIL
