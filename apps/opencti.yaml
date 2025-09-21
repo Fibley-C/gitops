@@ -64,7 +64,7 @@ spec:
         - name: opensearch.singleNode
           value: "true"
         - name: opensearch.persistence.enabled
-          value: "true"
+          value: "false"
 
         - name: minio.enabled
           value: "true"
@@ -75,7 +75,7 @@ spec:
         - name: minio.auth.rootPassword
           value: changeme
         - name: minio.persistence.enabled
-          value: "true"
+          value: "false"
 
         - name: rabbitmq.enabled
           value: "true"
@@ -90,7 +90,7 @@ spec:
         - name: rabbitmq.auth.erlangCookie
           value: changeme
         - name: rabbitmq.persistence.enabled
-          value: "true"
+          value: "false"
 
         - name: ingress.enabled
           value: "true"
