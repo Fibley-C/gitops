@@ -18,10 +18,27 @@ spec:
       parameters:
         - name: defaultSettings.defaultReplicaCount
           value: "2"
-        - name: service.ui.type
-          value: LoadBalancer
         - name: preUpgradeChecker.jobEnabled
           value: "false"
+        - name: service.ui.type
+          value: ClusterIP
+        - name: ingress.enabled
+          value: "true"
+        - name: ingress.host
+          value: longhorn-192.168.1.42.nip.io
+        - name: ingress.ingressClassName
+          value: traefik
+        - name: ingress.path
+          value: /
+        - name: ingress.pathType
+          value: Prefix
+        - name: ingress.tls
+          value: "true"
+        - name: ingress.tlsSecret
+          value: ingress-longhorn-tls
+        - name: ingress.annotations.cert-manager\.io/cluster-issuer
+          value: my-ca-issuer
+
   syncPolicy:
     automated: {}
     syncOptions:
