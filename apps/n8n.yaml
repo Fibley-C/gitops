@@ -20,6 +20,8 @@ spec:
           value: ClusterIP
         - name: ingress.enabled
           value: "true"
+        - name: ingress.annotations.cert-manager\.io/cluster-issuer
+          value: my-ca-issuer
         - name: ingress.className
           value: traefik
         - name: ingress.hosts[0].host
