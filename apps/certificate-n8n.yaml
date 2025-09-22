@@ -8,7 +8,7 @@ spec:
   duration: 2160h
   renewBefore: 360h
   issuerRef:
-    name: selfsigned-ca
+    name: my-ca-issuer
     kind: ClusterIssuer
   commonName: n8n-192.168.1.42.nip.io
   dnsNames:

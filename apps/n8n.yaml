@@ -23,11 +23,11 @@ spec:
         - name: ingress.className
           value: traefik
         - name: ingress.hosts[0].host
-          value: 192.168.1.42.nip.io
+          value: n8n-192.168.1.42.nip.io
         - name: ingress.hosts[0].paths[0]
           value: "/"
         - name: ingress.tls[0].hosts[0]
-          value: 192.168.1.42.nip.io
+          value: n8n-192.168.1.42.nip.io
         - name: ingress.tls[0].secretName
           value: ingress-n8n-tls
         - name: main.persistence.enabled
