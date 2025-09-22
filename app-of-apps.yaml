@@ -9,6 +9,8 @@ spec:
     namespace: argocd
   source:
     path: apps
+    directory:
+      recurse: true
     repoURL: https://github.com/Fibley-C/gitops
     targetRevision: HEAD
   syncPolicy:
