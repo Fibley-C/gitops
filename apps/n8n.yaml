@@ -26,8 +26,10 @@ spec:
           value: traefik
         - name: ingress.hosts[0].host
           value: n8n-192.168.1.42.nip.io
-        - name: ingress.hosts[0].paths[0]
+        - name: ingress.hosts[0].paths[0].path
           value: "/"
+        - name: ingress.hosts[0].paths[0].pathType
+          value: Prefix
         - name: ingress.tls[0].hosts[0]
           value: n8n-192.168.1.42.nip.io
         - name: ingress.tls[0].secretName
