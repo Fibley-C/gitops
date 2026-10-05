@@ -20,13 +20,17 @@
       "commitMessageTopic": "n8n Helm chart",
       "labels": ["helm", "oci"]
     },
-    {                                                                                                                          
-      "description": "Constrain Longhorn to sequential minor upgrades (no major jumps)",                                       
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["*/longhorn"],                                                                                     
-      "allowedVersions": ">=1.10.1 <2.0.0",                                                                                                                                                                            
-      "groupName": "longhorn-sequential"                                                                                       
-    }  
+    {
+      "description": "Longhorn: step through every minor, patches separate",
+      "matchManagers": ["argocd"],
+      "matchDatasources": ["helm"],
+      "matchDepNames": ["longhorn"],
+      "separateMinorPatch": true,
+      "separateMultipleMinor": true,
+      "dependencyDashboardApproval": true,
+      "automerge": false,
+      "labels": ["longhorn", "storage"]
+    }
   ],
 
   "customManagers": [
