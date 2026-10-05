@@ -19,7 +19,14 @@
       "matchPackageNames": ["8gears.container-registry.com/library/n8n"],
       "commitMessageTopic": "n8n Helm chart",
       "labels": ["helm", "oci"]
-    }
+    },
+    {                                                                                                                          
+      "description": "Constrain Longhorn to sequential minor upgrades (no major jumps)",                                       
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["*/longhorn"],                                                                                     
+      "allowedVersions": ">=1.10.1 <2.0.0",                                                                                                                                                                            
+      "groupName": "longhorn-sequential"                                                                                       
+    }  
   ],
 
   "customManagers": [
